@@ -61,6 +61,11 @@ dta_england %>%
   theme_minimal() +
   labs(title="Internal net migration", y="Count", x="Age")
 
+ggsave("figures/internal_net.png", 
+       dpi=300,
+       width=20, height=20, 
+       units="cm"
+       )
 
 dta_england %>% 
   ggplot(data=.) + 
@@ -69,13 +74,24 @@ dta_england %>%
   theme_minimal() +
   labs(title="Internal out-migration", y="Count", x="Age")
 
+ggsave("figures/internal_out.png", 
+       dpi=300,
+       width=20, height=20, 
+       units="cm"
+      )
+
 dta_england %>% 
   ggplot(data=.) + 
   geom_bar(aes(x=age, y=internal_in, fill=sex, colour=sex, group=sex), stat="identity") + 
   facet_wrap(~ year, nrow=4) + 
-  geom_hline(aes(yintercept=0), linetype="dashed") +
   theme_minimal() +
   labs(title="Internal in-migration", y="Count", x="Age")
+
+ggsave("figures/internal_in.png", 
+       dpi=300,
+       width=20, height=20, 
+       units="cm"
+)
 
 
 dta_england %>% 
