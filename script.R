@@ -222,6 +222,12 @@ ggsave("figures/english_population.tiff",
 
 # contour plots -----------------------------------------------------------
 
+png("figures/contour_population.png",
+     width=30, 
+     height=30,
+     res=300,
+     units="cm"
+     )
 
 dta_england %>%
   mutate(population = population / 1000) %>%
@@ -231,49 +237,138 @@ dta_england %>%
     data=.,
     region=T,
     layout=c(1,2), cuts=25,
-    col.regions=colorRampPalette(brewer.pal(6, "Reds"))(200),
-    scales=list(alternating=3),
+    col.regions=colorRampPalette(brewer.pal(3, "Blues"))(200),
+    scales=list(
+      alternating=3,
+      x=list(cex=1.4),
+      y=list(cex=1.4)
+      ),
     col="blue",
+    label=list(cex=1.2, fontface="bold"),
     strip=strip.custom(bg="lightgrey"),
-    par.strip.text=list(fontface="bold")  
+    par.strip.text=list(fontface="bold"),
+    xlab=list(label="Age in years", cex=1.4),
+    ylab=list(label="Year", cex=1.4)
     )
+dev.off()
+
+png("figures/contour_international_in.png",
+    width=30, 
+    height=30,
+    res=300,
+    units="cm"
+)
 
 dta_england %>%
-  contourplot(
+  mutate(international_in = international_in / 1000) %>%
+  filter(age <90) %>%
+    contourplot(
     international_in ~ age + year |  sex,
     data=.,
     region=T,
-    layout=c(1,2), cuts=25,
-    col.regions=colorRampPalette(brewer.pal(6, "Spectral"))(200),
-    scales=list(alternating=3)
+    layout=c(1,2), cuts=12,
+    col.regions=colorRampPalette(brewer.pal(3, "Blues"))(200),
+    scales=list(
+      alternating=3,
+      x=list(cex=1.4),
+      y=list(cex=1.4)
+    ),
+    col="blue",
+    label=list(cex=1.2, fontface="bold"),
+    strip=strip.custom(bg="lightgrey"),
+    par.strip.text=list(fontface="bold"),
+    xlab=list(label="Age in years", cex=1.4),
+    ylab=list(label="Year", cex=1.4)
   )
+dev.off()
 
+png("figures/contour_international_out.png",
+    width=30, 
+    height=30,
+    res=300,
+    units="cm"
+)
 dta_england %>%
+  mutate(international_out = international_out / 1000) %>%
+  filter(age <90) %>%
   contourplot(
     international_out ~ age + year |  sex,
     data=.,
     region=T,
-    layout=c(1,2), cuts=25,
-    col.regions=colorRampPalette(brewer.pal(6, "Spectral"))(200)
+    layout=c(1,2), cuts=12,
+    col.regions=colorRampPalette(brewer.pal(3, "Reds"))(200),
+    scales=list(
+      alternating=3,
+      x=list(cex=1.4),
+      y=list(cex=1.4)
+    ),
+    col="red",
+    label=list(cex=1.2, fontface="bold"),
+    strip=strip.custom(bg="lightgrey"),
+    par.strip.text=list(fontface="bold"),
+    xlab=list(label="Age in years", cex=1.4),
+    ylab=list(label="Year", cex=1.4)
   )
+dev.off()
 
+png("figures/contour_internal_in.png",
+    width=30, 
+    height=30,
+    res=300,
+    units="cm"
+)
 dta_england %>%
+  mutate(internal_in = internal_in / 1000) %>%
+  filter(age < 90) %>%
   contourplot(
     internal_in ~ age + year |  sex,
     data=.,
     region=T,
-    layout=c(1,2), cuts=25,
-    col.regions=colorRampPalette(brewer.pal(6, "Spectral"))(200)
+    layout=c(1,2), cuts=12,
+    col.regions=colorRampPalette(brewer.pal(3, "Blues"))(200),
+    scales=list(
+      alternating=3,
+      x=list(cex=1.4),
+      y=list(cex=1.4)
+    ),
+    col="blue",
+    label=list(cex=1.2, fontface="bold"),
+    strip=strip.custom(bg="lightgrey"),
+    par.strip.text=list(fontface="bold"),
+    xlab=list(label="Age in years", cex=1.4),
+    ylab=list(label="Year", cex=1.4)
   )
+dev.off()
 
+
+png("figures/contour_internal_out.png",
+    width=30, 
+    height=30,
+    res=300,
+    units="cm"
+)
 dta_england %>%
+  mutate(internal_out = internal_out / 1000) %>%
+  filter(age < 90) %>%
   contourplot(
     internal_out ~ age + year |  sex,
     data=.,
     region=T,
-    layout=c(1,2), cuts=25,
-    col.regions=colorRampPalette(brewer.pal(6, "Spectral"))(200)
+    layout=c(1,2), cuts=12,
+    col.regions=colorRampPalette(brewer.pal(3, "Reds"))(200),
+    scales=list(
+      alternating=3,
+      x=list(cex=1.4),
+      y=list(cex=1.4)
+    ),
+    col="red",
+    label=list(cex=1.2, fontface="bold"),
+    strip=strip.custom(bg="lightgrey"),
+    par.strip.text=list(fontface="bold"),
+    xlab=list(label="Age in years", cex=1.4),
+    ylab=list(label="Year", cex=1.4)
   )
+dev.off()
 
 
 
