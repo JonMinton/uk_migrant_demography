@@ -48,9 +48,104 @@ dta_england <- dta  %>%
     international_net = international_in - international_out, 
     internal_net = internal_in - internal_out)  
 
+
+# small multiples ---------------------------------------------------------
+
+
+
 dta_england %>% 
   ggplot(data=.) + 
-  geom_line(aes(x=age, y=internal_net, colour=sex, group=sex)) + facet_wrap(~ year, nrow=4)
+  geom_line(aes(x=age, y=internal_net, colour=sex, group=sex)) + 
+  facet_wrap(~ year, nrow=4) + 
+  geom_hline(aes(yintercept=0), linetype="dashed") +
+  theme_minimal() +
+  labs(title="Internal net migration", y="Count", x="Age")
+
+
+dta_england %>% 
+  ggplot(data=.) + 
+  geom_bar(aes(x=age, y=internal_out, fill=sex, colour=sex, group=sex), stat="identity") + 
+  facet_wrap(~ year, nrow=4) + 
+  theme_minimal() +
+  labs(title="Internal out-migration", y="Count", x="Age")
+
+dta_england %>% 
+  ggplot(data=.) + 
+  geom_bar(aes(x=age, y=internal_in, fill=sex, colour=sex, group=sex), stat="identity") + 
+  facet_wrap(~ year, nrow=4) + 
+  geom_hline(aes(yintercept=0), linetype="dashed") +
+  theme_minimal() +
+  labs(title="Internal in-migration", y="Count", x="Age")
+
+
+dta_england %>% 
+  ggplot(data=.) + 
+  geom_line(aes(x=age, y=international_net, colour=sex, group=sex)) + 
+  facet_wrap(~ year, nrow=4) + 
+  geom_hline(aes(yintercept=0), linetype="dashed") +
+  theme_minimal() +
+  labs(title="International net migration", y="Count", x="Age")
+
+dta_england %>% 
+  ggplot(data=.) + 
+  geom_bar(aes(x=age, y=international_in, fill=sex, colour=sex, group=sex), stat="identity") + 
+  facet_wrap(~ year, nrow=4) + 
+  geom_hline(aes(yintercept=0), linetype="dashed") +
+  theme_minimal() +
+  labs(title="International in-migration", y="Count", x="Age")
+
+dta_england %>% 
+  ggplot(data=.) + 
+  geom_bar(aes(x=age, y=international_out, fill=sex, colour=sex, group=sex), stat="identity")  + 
+  facet_wrap(~ year, nrow=4) + 
+  geom_hline(aes(yintercept=0), linetype="dashed") +
+  theme_minimal() +
+  labs(title="International out-migration", y="Count", x="Age")
+
+
+dta_england %>% 
+  ggplot(data=.) + 
+  geom_line(aes(x=age, y=international_in, colour=sex, group=sex), size=1.1) + 
+  geom_line(aes(x=age, y=internal_in, colour=sex, group=sex)) +
+  facet_wrap(~ year, nrow=4) + 
+  geom_hline(aes(yintercept=0), linetype="dashed") +
+  theme_minimal() +
+  labs(title="International (thick) and internal (thin)\n in-migration", y="Count", x="Age")
+
+dta_england %>%
+  mutate(mig_prop = international_in / population) %>%
+  ggplot(data=.) + 
+  geom_line(aes(x=age, y=mig_prop, colour=sex, group=sex)) +
+  facet_wrap(~ year, nrow=4) + 
+  theme_minimal() +
+  labs(
+    title="Proportion of population who are \ninternational migrants", 
+    y="Proportion", x="Age"
+    ) + 
+  geom_vline(aes(xintercept=c(18)))
+
+dta_england %>%
+  mutate(mig_prop = international_out / population) %>%
+  ggplot(data=.) + 
+  geom_line(aes(x=age, y=mig_prop, colour=sex, group=sex)) + 
+  facet_wrap(~ year, nrow=4) + 
+  theme_minimal() +
+  labs(
+    title="Proportion of population who \nemmigrate internationally", 
+    y="Proportion", x="Age"
+    ) + 
+  geom_vline(aes(xintercept=c(18, 60, 65)))
+
+dta_england %>% 
+  ggplot(data=.) + 
+  geom_bar(aes(x=age, y=population, fill=sex, colour=sex, group=sex), stat="identity")  + 
+  facet_wrap(~ year, nrow=4) + 
+  geom_hline(aes(yintercept=0), linetype="dashed") +
+  theme_minimal() +
+  labs(title="Population", y="Count", x="Age")
+
+
+# contour plots -----------------------------------------------------------
 
 
 dta_england %>%
@@ -68,7 +163,8 @@ dta_england %>%
     data=.,
     region=T,
     layout=c(1,2), cuts=25,
-    col.regions=colorRampPalette(brewer.pal(6, "Spectral"))(200)
+    col.regions=colorRampPalette(brewer.pal(6, "Spectral"))(200),
+    scales=list(alternating=3)
   )
 
 dta_england %>%
@@ -97,3 +193,62 @@ dta_england %>%
     layout=c(1,2), cuts=25,
     col.regions=colorRampPalette(brewer.pal(6, "Spectral"))(200)
   )
+
+
+
+# rgl ---------------------------------------------------------------------
+
+
+make_matrix <- function(input){
+  clnms <- names(input)[-1]
+  rwnms <- input$age
+  output <- as.matrix(input)
+  output <- output[,-1]
+  rownames(output) <- rwnms
+  colnames(output) <- clnms
+  
+  return(output)
+}
+
+f_international_in <- dta_england  %>% 
+  filter(sex=="female")  %>% 
+  select(age, year, international_in)  %>% 
+  ungroup  %>% 
+  select(-sex)  %>% 
+  spread(key=year, value=international_in)   %>% 
+  make_matrix
+
+persp3d(f_international_in, col="white", axes=F)
+
+m_international_in <- dta_england  %>% 
+  filter(sex=="male")  %>% 
+  select(age, year, international_in)  %>% 
+  ungroup  %>% 
+  select(-sex)  %>% 
+  spread(key=year, value=international_in)   %>% 
+  make_matrix
+
+persp3d(m_international_in, col="white", axes=F)
+
+
+f_population <- dta_england  %>% 
+  filter(sex=="female")  %>% 
+  select(age, year, population)  %>% 
+  ungroup  %>% 
+  select(-sex)  %>% 
+  spread(key=year, value=population)   %>% 
+  make_matrix
+
+persp3d(f_population, col="white", axes=F)
+
+m_population <- dta_england  %>% 
+  filter(sex=="female")  %>% 
+  select(age, year, population)  %>% 
+  ungroup  %>% 
+  select(-sex)  %>% 
+  spread(key=year, value=population)   %>% 
+  make_matrix
+
+persp3d(m_population, col="white", axes=F)
+
+
