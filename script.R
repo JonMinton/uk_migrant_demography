@@ -63,7 +63,7 @@ dta_england %>%
   scale_colour_manual(name="Sex", values=c("red", "blue")) + 
   labs(title="Internal net migration", y="Count", x="Age")
 
-ggsave("figures/internal_net.tiff", 
+ggsave("figures/internal_net.png", 
        dpi=300,
        width=20, height=25, 
        units="cm"
@@ -81,7 +81,7 @@ dta_england %>%
   annotate("rect", xmin=0, xmax=18, ymin=0, ymax=150000, alpha=0.2) +
   annotate("rect", xmin=60, xmax=91, ymin=0, ymax=150000, alpha=0.2)
 
-ggsave("figures/internal_out.tiff", 
+ggsave("figures/internal_out.png", 
        dpi=300,
        width=20, height=25, 
        units="cm"
@@ -99,7 +99,7 @@ dta_england %>%
   annotate("rect", xmin=0, xmax=18, ymin=0, ymax=150000, alpha=0.2) +
   annotate("rect", xmin=60, xmax=91, ymin=0, ymax=150000, alpha=0.2)
 
-ggsave("figures/internal_in.tiff", 
+ggsave("figures/internal_in.png", 
        dpi=300,
        width=20, height=25, 
        units="cm"
@@ -116,7 +116,7 @@ dta_england %>%
   scale_colour_manual(name="Sex", values=c("red", "blue")) +
   labs(title="International net migration", y="Count", x="Age")
 
-ggsave("figures/international_net.tiff", 
+ggsave("figures/international_net.png", 
        dpi=300,
        width=20, height=25, 
        units="cm"
@@ -136,7 +136,7 @@ dta_england %>%
   annotate("rect", xmin=60, xmax=91, ymin=0, ymax=40000, alpha=0.2)
 
 
-ggsave("figures/international_in.tiff", 
+ggsave("figures/international_in.png", 
        dpi=300,
        width=20, height=25, 
        units="cm"
@@ -155,7 +155,7 @@ dta_england %>%
   annotate("rect", xmin=0, xmax=18, ymin=0, ymax=20000, alpha=0.2) +
   annotate("rect", xmin=60, xmax=91, ymin=0, ymax=20000, alpha=0.2)
 
-ggsave("figures/international_out.tiff", 
+ggsave("figures/international_out.png", 
        dpi=300,
        width=20, height=25, 
        units="cm"
@@ -175,7 +175,7 @@ dta_england %>%
     y="Proportion", x="Age"
     ) 
 
-ggsave("figures/international_immigrant_prop.tiff", 
+ggsave("figures/international_immigrant_prop.png", 
        dpi=300,
        width=20, height=25, 
        units="cm"
@@ -193,7 +193,7 @@ dta_england %>%
     title="Proportion of population who \nemmigrate internationally", 
     y="Proportion", x="Age"
     ) 
-ggsave("figures/international_outmigrant_prop.tiff", 
+ggsave("figures/international_outmigrant_prop.png", 
        dpi=300,
        width=20, height=25, 
        units="cm"
@@ -212,7 +212,7 @@ dta_england %>%
   annotate("rect", xmin=0, xmax=18, ymin=0, ymax=800000, alpha=0.2) +
   annotate("rect", xmin=60, xmax=91, ymin=0, ymax=800000, alpha=0.2) 
   
-ggsave("figures/english_population.tiff", 
+ggsave("figures/english_population.png", 
        dpi=300,
        width=20, height=25, 
        units="cm"
@@ -396,6 +396,15 @@ f_international_in <- dta_england  %>%
 
 persp3d(f_international_in, col="white", axes=F)
 
+f_international_in %>%
+  r2stl(
+  x=as.numeric(rownames(.)),
+  y=as.numeric(colnames(.)),
+  z=.,
+  filename="stls/f_international_in.stl", 
+  z.expand=T
+  )
+
 m_international_in <- dta_england  %>% 
   filter(sex=="male")  %>% 
   select(age, year, international_in)  %>% 
@@ -405,6 +414,15 @@ m_international_in <- dta_england  %>%
   make_matrix
 
 persp3d(m_international_in, col="white", axes=F)
+
+m_international_in %>%
+  r2stl(
+    x=as.numeric(rownames(.)),
+    y=as.numeric(colnames(.)),
+    z=.,
+    filename="stls/m_international_in.stl", 
+    z.expand=T
+  )
 
 
 f_population <- dta_england  %>% 
@@ -416,6 +434,15 @@ f_population <- dta_england  %>%
   make_matrix
 
 persp3d(f_population, col="white", axes=F)
+f_population %>%
+  r2stl(
+    x=as.numeric(rownames(.)),
+    y=as.numeric(colnames(.)),
+    z=.,
+    filename="stls/f_population.stl", 
+    z.expand=T
+  )
+
 
 m_population <- dta_england  %>% 
   filter(sex=="female")  %>% 
@@ -427,4 +454,12 @@ m_population <- dta_england  %>%
 
 persp3d(m_population, col="white", axes=F)
 
+m_population %>%
+  r2stl(
+    x=as.numeric(rownames(.)),
+    y=as.numeric(colnames(.)),
+    z=.,
+    filename="stls/m_population.stl", 
+    z.expand=T
+  )
 
