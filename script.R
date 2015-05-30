@@ -220,6 +220,43 @@ ggsave("figures/english_population.png",
 
 
 
+# Population in context ---------------------------------------------------
+
+dta_england  %>% 
+  group_by(age, year)  %>% 
+  summarise_each( funs(sum), -sex) %>%
+  ggplot(.) + 
+  geom_ribbon(
+    aes(x=age, ymin=0, ymax=population),
+    fill="lightgrey"
+    ) + 
+  geom_ribbon(
+    aes(x=age, ymax=0, ymin=-internal_out), 
+    fill="lightblue"
+    ) + 
+  geom_ribbon(
+    aes(x=age, ymax=-internal_out, ymin=-(internal_out + international_out)), 
+    fill="darkblue"
+    ) + 
+  geom_ribbon(
+    aes(x=age, ymin=0, ymax=internal_in), 
+    fill="red"
+    ) + 
+  geom_ribbon(
+    aes(x=age, ymin=internal_in, ymax=(internal_in + international_in)), 
+    fill="darkred") + 
+  facet_wrap(~year) +
+  theme_minimal() +
+  scale_y_continuous(labels=comma) +
+  labs(title="Inflows and outflows in context", y="Count", x="Age") +
+  annotate("rect", xmin=0, xmax=18, ymin=-200000, ymax=800000, alpha=0.2) +
+  annotate("rect", xmin=60, xmax=91, ymin=-200000, ymax=800000, alpha=0.2) 
+ggsave("figures/english_inflow_outflow_context.png", 
+       dpi=300,
+       width=20, height=25, 
+       units="cm"
+)
+
 # contour plots -----------------------------------------------------------
 
 png("figures/contour_population.png",
@@ -462,4 +499,129 @@ m_population %>%
     filename="stls/m_population.stl", 
     z.expand=T
   )
+
+
+
+f_international_out <- dta_england  %>% 
+  filter(sex=="female")  %>% 
+  select(age, year, international_out)  %>% 
+  ungroup  %>% 
+  select(-sex)  %>% 
+  spread(key=year, value=international_out)   %>% 
+  make_matrix
+
+persp3d(f_international_out, col="white", axes=F)
+
+f_international_out %>%
+  r2stl(
+    x=as.numeric(rownames(.)),
+    y=as.numeric(colnames(.)),
+    z=.,
+    filename="stls/f_international_out.stl", 
+    z.expand=T
+  )
+
+m_international_out <- dta_england  %>% 
+  filter(sex=="male")  %>% 
+  select(age, year, international_out)  %>% 
+  ungroup  %>% 
+  select(-sex)  %>% 
+  spread(key=year, value=international_out)   %>% 
+  make_matrix
+
+persp3d(m_international_out, col="white", axes=F)
+
+m_international_out %>%
+  r2stl(
+    x=as.numeric(rownames(.)),
+    y=as.numeric(colnames(.)),
+    z=.,
+    filename="stls/m_international_out.stl", 
+    z.expand=T
+  )
+
+
+f_internal_in <- dta_england  %>% 
+  filter(sex=="female")  %>% 
+  select(age, year, internal_in)  %>% 
+  ungroup  %>% 
+  select(-sex)  %>% 
+  spread(key=year, value=internal_in)   %>% 
+  make_matrix
+
+persp3d(f_internal_in, col="white", axes=F)
+
+f_internal_in %>%
+  r2stl(
+    x=as.numeric(rownames(.)),
+    y=as.numeric(colnames(.)),
+    z=.,
+    filename="stls/f_internal_in.stl", 
+    z.expand=T
+  )
+
+m_internal_in <- dta_england  %>% 
+  filter(sex=="male")  %>% 
+  select(age, year, internal_in)  %>% 
+  ungroup  %>% 
+  select(-sex)  %>% 
+  spread(key=year, value=internal_in)   %>% 
+  make_matrix
+
+persp3d(m_internal_in, col="white", axes=F)
+
+m_internal_in %>%
+  r2stl(
+    x=as.numeric(rownames(.)),
+    y=as.numeric(colnames(.)),
+    z=.,
+    filename="stls/m_internal_in.stl", 
+    z.expand=T
+  )
+
+
+f_internal_out <- dta_england  %>% 
+  filter(sex=="female")  %>% 
+  select(age, year, internal_out)  %>% 
+  ungroup  %>% 
+  select(-sex)  %>% 
+  spread(key=year, value=internal_out)   %>% 
+  make_matrix
+
+persp3d(f_internal_out, col="white", axes=F)
+
+f_internal_out %>%
+  r2stl(
+    x=as.numeric(rownames(.)),
+    y=as.numeric(colnames(.)),
+    z=.,
+    filename="stls/f_internal_out.stl", 
+    z.expand=T
+  )
+
+m_internal_out <- dta_england  %>% 
+  filter(sex=="male")  %>% 
+  select(age, year, internal_out)  %>% 
+  ungroup  %>% 
+  select(-sex)  %>% 
+  spread(key=year, value=internal_out)   %>% 
+  make_matrix
+
+persp3d(m_internal_out, col="white", axes=F)
+
+m_internal_out %>%
+  r2stl(
+    x=as.numeric(rownames(.)),
+    y=as.numeric(colnames(.)),
+    z=.,
+    filename="stls/m_internal_out.stl", 
+    z.expand=T
+  )
+
+
+# Info for scaling:
+
+#   sex           internal_in internal_out international_in international_out population
+#  female       91840        91835            20661             12110     426452
+#    male       75851        75805            22227             11672     420409
 
