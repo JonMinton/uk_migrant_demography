@@ -1,0 +1,86 @@
+<!DOCTYPE MeshLabDocument>
+<MeshLabProject>
+ <MeshGroup>
+  <MLMesh label="m_population.stl" filename="m_population.stl">
+   <MLMatrix44>
+1 0 0 1 
+0 1 0 1 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="f_population.stl" filename="f_population.stl">
+   <MLMatrix44>
+1 0 0 1 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="f_internal_in.stl" filename="f_internal_in.stl">
+   <MLMatrix44>
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="m_internal_in.stl" filename="m_internal_in.stl">
+   <MLMatrix44>
+1 0 0 0 
+0 1 0 1 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="m_international_in.stl" filename="m_international_in.stl">
+   <MLMatrix44>
+1 0 0 -1 
+0 1 0 1 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="f_international_in.stl" filename="f_international_in.stl">
+   <MLMatrix44>
+1 0 0 -0.975257 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="f_internal_out.stl" filename="f_internal_out.stl">
+   <MLMatrix44>
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="m_internal_out.stl" filename="m_internal_out.stl">
+   <MLMatrix44>
+1 0 0 0 
+0 1 0 1 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="f_international_out.stl" filename="f_international_out.stl">
+   <MLMatrix44>
+1 0 0 -1 
+0 1 0 0 
+0 0 -1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="m_international_out.stl" filename="m_international_out.stl">
+   <MLMatrix44>
+1 0 0 -1 
+0 1 0 1 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+ </MeshGroup>
+ <RasterGroup/>
+</MeshLabProject>
