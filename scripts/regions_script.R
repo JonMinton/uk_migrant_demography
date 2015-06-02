@@ -1,4 +1,7 @@
-
+dta_regions$ons_region_name <- revalue(
+  dta_regions$ons_region_name, 
+  c("Yorkshire and The Humber" = "Yorkshire and\nThe Humber")
+  )
 
 dta_regions %>% 
   ggplot(data=.) + 
@@ -10,7 +13,7 @@ dta_regions %>%
   labs(title="Internal net migration", y="Count", x="Age")
 
 ggsave("figures/regions/internal_net.png", 
-       dpi=300,
+       dpi=600,
        width=28, height=25, 
        units="cm"
 )
@@ -28,7 +31,7 @@ dta_regions %>%
   annotate("rect", xmin=60, xmax=91, ymin=0, ymax=20000, alpha=0.2)
 
 ggsave("figures/regions/internal_out.png", 
-       dpi=300,
+       dpi=600,
        width=28, height=25, 
        units="cm"
 )
@@ -46,7 +49,7 @@ dta_regions %>%
   annotate("rect", xmin=60, xmax=91, ymin=0, ymax=20000, alpha=0.2)
 
 ggsave("figures/regions/internal_in.png", 
-       dpi=300,
+       dpi=600,
        width=28, height=25, 
        units="cm"
 )
@@ -63,7 +66,7 @@ dta_regions %>%
   labs(title="International net migration", y="Count", x="Age")
 
 ggsave("figures/regions/international_net.png", 
-       dpi=300,
+       dpi=600,
        width=28, height=25, 
        units="cm"
 )
@@ -83,7 +86,7 @@ dta_regions %>%
 
 
 ggsave("figures/regions/international_in.png", 
-       dpi=300,
+       dpi=600,
        width=28, height=25, 
        units="cm"
 )
@@ -102,7 +105,7 @@ dta_regions %>%
   annotate("rect", xmin=60, xmax=91, ymin=0, ymax=6000, alpha=0.2)
 
 ggsave("figures/regions/international_out.png", 
-       dpi=300,
+       dpi=600,
        width=28, height=25, 
        units="cm"
 )
@@ -122,7 +125,7 @@ dta_regions %>%
   ) 
 
 ggsave("figures/regions/international_immigrant_prop.png", 
-       dpi=300,
+       dpi=600,
        width=28, height=25, 
        units="cm"
 )
@@ -141,7 +144,7 @@ dta_regions %>%
   ) 
 
 ggsave("figures/regions/international_outmigrant_prop.png", 
-       dpi=300,
+       dpi=600,
        width=28, height=25, 
        units="cm"
 )
@@ -160,7 +163,7 @@ dta_regions %>%
   annotate("rect", xmin=60, xmax=91, ymin=0, ymax=150000, alpha=0.2) 
 
 ggsave("figures/regions/english_population.png", 
-       dpi=300,
+       dpi=600,
        width=28, height=25, 
        units="cm"
 )
@@ -207,7 +210,7 @@ ggsave("figures/regions/english_inflow_outflow_context.png",
 
 # contour plots -----------------------------------------------------------
 
-png("figures/contour_population.png",
+png("figures/regions/contour_population.png",
     width=30, 
     height=30,
     res=300,
@@ -225,7 +228,7 @@ dta_regions %>%
     col.regions=colorRampPalette(brewer.pal(3, "Blues"))(200),
     scales=list(
       alternating=3,
-      x=list(cex=1.4),
+      x=list(cex=1.2, rot=90),
       y=list(cex=1.4)
     ),
     col="blue",
