@@ -1,0 +1,445 @@
+E-code,Local authority,Region,Class
+,,,
+E0101,Bath & North East Somerset UA,SW,UA
+E0102,Bristol UA,SW,UA
+E0103,South Gloucestershire UA,SW,UA
+E0104,North Somerset UA,SW,UA
+E0201,Luton UA,EE,UA
+E0202,Bedford UA,EE,UA
+E0203,Central Bedfordshire UA,EE,UA
+E0301,Bracknell Forest UA,SE,UA
+E0302,West Berkshire UA,SE,UA
+E0303,Reading UA,SE,UA
+E0304,Slough UA,SE,UA
+E0305,Windsor & Maidenhead UA,SE,UA
+E0306,Wokingham UA,SE,UA
+E0401,Milton Keynes UA,SE,UA
+E0421,Buckinghamshire,SE,SC
+E0431,Aylesbury Vale,SE,SD
+E0432,Chiltern,SE,SD
+E0434,South Bucks,SE,SD
+E0435,Wycombe,SE,SD
+E0501,Peterborough UA,EE,UA
+E0521,Cambridgeshire,EE,SC
+E0531,Cambridge,EE,SD
+E0532,East Cambridgeshire,EE,SD
+E0533,Fenland,EE,SD
+E0536,South Cambridgeshire,EE,SD
+E0551,Huntingdonshire,EE,SD
+E0601,Halton UA,NW,UA
+E0602,Warrington UA,NW,UA
+E0603,Cheshire East UA,NW,UA
+E0604,Cheshire West and Chester UA,NW,UA
+E0701,Hartlepool UA,NE,UA
+E0702,Middlesborough UA,NE,UA
+E0703,Redcar & Cleveland UA,NE,UA
+E0704,Stockton-on-Tees UA,NE,UA
+E0801,Cornwall UA,SW,UA
+E0920,Cumbria,NW,SC
+E0931,Allerdale,NW,SD
+E0932,Barrow-in-Furness,NW,SD
+E0933,Carlisle,NW,SD
+E0934,Copeland,NW,SD
+E0935,Eden,NW,SD
+E0936,South Lakeland,NW,SD
+E1001,Derby City UA,EM,UA
+E1021,Derbyshire,EM,SC
+E1031,Amber Valley,EM,SD
+E1032,Bolsover,EM,SD
+E1033,Chesterfield,EM,SD
+E1035,Derbyshire Dales,EM,SD
+E1036,Erewash,EM,SD
+E1037,High Peak,EM,SD
+E1038,North East Derbyshire,EM,SD
+E1039,South Derbyshire,EM,SD
+E1101,Plymouth UA,SW,UA
+E1102,Torbay UA,SW,UA
+E1121,Devon,SW,SC
+E1131,East Devon,SW,SD
+E1132,Exeter,SW,SD
+E1133,Mid Devon,SW,SD
+E1134,North Devon,SW,SD
+E1136,South Hams,SW,SD
+E1137,Teignbridge,SW,SD
+E1139,Torridge,SW,SD
+E1140,West Devon,SW,SD
+E1201,Poole UA,SW,UA
+E1202,Bournemouth UA,SW,UA
+E1221,Dorset,SW,SC
+E1232,Christchurch,SW,SD
+E1233,East Dorset,SW,SD
+E1234,North Dorset,SW,SD
+E1236,Purbeck,SW,SD
+E1237,West Dorset,SW,SD
+E1238,Weymouth & Portland,SW,SD
+E1301,Darlington UA,NE,UA
+E1302,County Durham UA,NE,UA
+E1401,Brighton & Hove UA,SE,UA
+E1421,East Sussex,SE,SC
+E1432,Eastbourne,SE,SD
+E1433,Hastings,SE,SD
+E1435,Lewes,SE,SD
+E1436,Rother,SE,SD
+E1437,Wealden,SE,SD
+E1501,Southend-on-Sea UA,EE,UA
+E1502,Thurrock UA,EE,UA
+E1521,Essex,EE,SC
+E1531,Basildon,EE,SD
+E1532,Braintree,EE,SD
+E1533,Brentwood,EE,SD
+E1534,Castle Point,EE,SD
+E1535,Chelmsford,EE,SD
+E1536,Colchester,EE,SD
+E1537,Epping Forest,EE,SD
+E1538,Harlow,EE,SD
+E1539,Maldon,EE,SD
+E1540,Rochford,EE,SD
+E1542,Tendring,EE,SD
+E1544,Uttlesford,EE,SD
+E1620,Gloucestershire,SW,SC
+E1631,Cheltenham,SW,SD
+E1632,Cotswold,SW,SD
+E1633,Forest of Dean,SW,SD
+E1634,Gloucester,SW,SD
+E1635,Stroud,SW,SD
+E1636,Tewkesbury,SW,SD
+E1701,Portsmouth UA,SE,UA
+E1702,Southampton UA,SE,UA
+E1721,Hampshire,SE,SC
+E1731,Basingstoke & Deane,SE,SD
+E1732,East Hampshire,SE,SD
+E1733,Eastleigh,SE,SD
+E1734,Fareham,SE,SD
+E1735,Gosport,SE,SD
+E1736,Hart,SE,SD
+E1737,Havant,SE,SD
+E1738,New Forest,SE,SD
+E1740,Rushmoor,SE,SD
+E1742,Test Valley,SE,SD
+E1743,Winchester,SE,SD
+E1801,Herefordshire UA,WM,UA
+E1821,Worcestershire,WM,SC
+E1831,Bromsgrove,WM,SD
+E1835,Redditch,WM,SD
+E1837,Worcester,WM,SD
+E1838,Wychavon,WM,SD
+E1839,Wyre Forest,WM,SD
+E1851,Malvern Hills,WM,SD
+E1920,Hertfordshire,EE,SC
+E1931,Broxbourne,EE,SD
+E1932,Dacorum,EE,SD
+E1933,East Hertfordshire,EE,SD
+E1934,Hertsmere,EE,SD
+E1935,North Hertfordshire,EE,SD
+E1936,St Albans,EE,SD
+E1937,Stevenage,EE,SD
+E1938,Three Rivers,EE,SD
+E1939,Watford,EE,SD
+E1940,Welwyn Hatfield,EE,SD
+E2001,East Riding of Yorkshire UA,YH,UA
+E2002,Kingston upon Hull UA,YH,UA
+E2003,North East Lincolnshire UA,YH,UA
+E2004,North Lincolnshire UA,YH,UA
+E2101,Isle of Wight UA,SE,UA
+E2201,The Medway Towns UA,SE,UA
+E2221,Kent,SE,SC
+E2231,Ashford,SE,SD
+E2232,Canterbury,SE,SD
+E2233,Dartford,SE,SD
+E2234,Dover,SE,SD
+E2236,Gravesham,SE,SD
+E2237,Maidstone,SE,SD
+E2239,Sevenoaks,SE,SD
+E2240,Shepway,SE,SD
+E2241,Swale,SE,SD
+E2242,Thanet,SE,SD
+E2243,Tonbridge & Malling,SE,SD
+E2244,Tunbridge Wells,SE,SD
+E2301,Blackburn with Darwen UA,NW,UA
+E2302,Blackpool UA,NW,UA
+E2321,Lancashire,NW,SC
+E2333,Burnley,NW,SD
+E2334,Chorley,NW,SD
+E2335,Fylde,NW,SD
+E2336,Hyndburn,NW,SD
+E2337,Lancaster,NW,SD
+E2338,Pendle,NW,SD
+E2339,Preston,NW,SD
+E2340,Ribble Valley,NW,SD
+E2341,Rossendale,NW,SD
+E2342,South Ribble,NW,SD
+E2343,West Lancashire,NW,SD
+E2344,Wyre,NW,SD
+E2401,Leicester City UA,EM,UA
+E2402,Rutland UA,EM,UA
+E2421,Leicestershire,EM,SC
+E2431,Blaby,EM,SD
+E2432,Charnwood,EM,SD
+E2433,Harborough,EM,SD
+E2434,Hinckley & Bosworth,EM,SD
+E2436,Melton,EM,SD
+E2437,North West Leicestershire,EM,SD
+E2438,Oadby & Wigston,EM,SD
+E2520,Lincolnshire,EM,SC
+E2531,Boston,EM,SD
+E2532,East Lindsey,EM,SD
+E2533,Lincoln,EM,SD
+E2534,North Kesteven,EM,SD
+E2535,South Holland,EM,SD
+E2536,South Kesteven,EM,SD
+E2537,West Lindsey,EM,SD
+E2620,Norfolk,EE,SC
+E2631,Breckland,EE,SD
+E2632,Broadland,EE,SD
+E2633,Great Yarmouth,EE,SD
+E2634,King's Lynn & West Norfolk,EE,SD
+E2635,North Norfolk,EE,SD
+E2636,Norwich,EE,SD
+E2637,South Norfolk,EE,SD
+E2701,York UA,YH,UA
+E2721,North Yorkshire,YH,SC
+E2731,Craven,YH,SD
+E2732,Hambleton,YH,SD
+E2734,Richmondshire,YH,SD
+E2736,Scarborough,YH,SD
+E2753,Harrogate,YH,SD
+E2755,Ryedale,YH,SD
+E2757,Selby,YH,SD
+E2820,Northamptonshire,EM,SC
+E2831,Corby,EM,SD
+E2832,Daventry,EM,SD
+E2833,East Northamptonshire,EM,SD
+E2834,Kettering,EM,SD
+E2835,Northampton,EM,SD
+E2836,South Northamptonshire,EM,SD
+E2837,Wellingborough,EM,SD
+E2901,Northumberland UA,NE,UA
+E3001,City of Nottingham UA,EM,UA
+E3021,Nottinghamshire,EM,SC
+E3031,Ashfield,EM,SD
+E3032,Bassetlaw,EM,SD
+E3033,Broxtowe,EM,SD
+E3034,Gedling,EM,SD
+E3035,Mansfield,EM,SD
+E3036,Newark & Sherwood,EM,SD
+E3038,Rushcliffe,EM,SD
+E3120,Oxfordshire,SE,SC
+E3131,Cherwell,SE,SD
+E3132,Oxford,SE,SD
+E3133,South Oxfordshire,SE,SD
+E3134,Vale of White Horse,SE,SD
+E3135,West Oxfordshire,SE,SD
+E3201,Telford and the Wrekin UA,WM,UA
+E3202,Shropshire UA,WM,UA
+E3320,Somerset,SW,SC
+E3331,Mendip,SW,SD
+E3332,Sedgemoor,SW,SD
+E3333,Taunton Deane,SW,SD
+E3334,South Somerset,SW,SD
+E3335,West Somerset,SW,SD
+E3401,Stoke-on-Trent UA,WM,UA
+E3421,Staffordshire,WM,SC
+E3431,Cannock Chase,WM,SD
+E3432,East Staffordshire,WM,SD
+E3433,Lichfield,WM,SD
+E3434,Newcastle-under-Lyme,WM,SD
+E3435,South Staffordshire,WM,SD
+E3436,Stafford,WM,SD
+E3437,Staffordshire Moorlands,WM,SD
+E3439,Tamworth,WM,SD
+E3520,Suffolk,EE,SC
+E3531,Babergh,EE,SD
+E3532,Forest Heath,EE,SD
+E3533,Ipswich,EE,SD
+E3534,Mid Suffolk,EE,SD
+E3535,St Edmundsbury,EE,SD
+E3536,Suffolk Coastal,EE,SD
+E3537,Waveney,EE,SD
+E3620,Surrey,SE,SC
+E3631,Elmbridge,SE,SD
+E3632,Epsom & Ewell,SE,SD
+E3633,Guildford,SE,SD
+E3634,Mole Valley,SE,SD
+E3635,Reigate & Banstead,SE,SD
+E3636,Runnymede,SE,SD
+E3637,Spelthorne,SE,SD
+E3638,Surrey Heath,SE,SD
+E3639,Tandridge,SE,SD
+E3640,Waverley,SE,SD
+E3641,Woking,SE,SD
+E3720,Warwickshire,WM,SC
+E3731,North Warwickshire,WM,SD
+E3732,Nuneaton & Bedworth,WM,SD
+E3733,Rugby,WM,SD
+E3734,Stratford-on-Avon,WM,SD
+E3735,Warwick,WM,SD
+E3820,West Sussex,SE,SC
+E3831,Adur,SE,SD
+E3832,Arun,SE,SD
+E3833,Chichester,SE,SD
+E3834,Crawley,SE,SD
+E3835,Horsham,SE,SD
+E3836,Mid Sussex,SE,SD
+E3837,Worthing,SE,SD
+E3901,Swindon UA,SW,UA
+E3902,Wiltshire UA,SW,UA
+E4001,Isles of Scilly,SW,UA
+E4201,Bolton,NW,MD
+E4202,Bury,NW,MD
+E4203,Manchester,NW,MD
+E4204,Oldham,NW,MD
+E4205,Rochdale,NW,MD
+E4206,Salford,NW,MD
+E4207,Stockport,NW,MD
+E4208,Tameside,NW,MD
+E4209,Trafford,NW,MD
+E4210,Wigan,NW,MD
+E4301,Knowsley,NW,MD
+E4302,Liverpool,NW,MD
+E4303,St Helens,NW,MD
+E4304,Sefton,NW,MD
+E4305,Wirral,NW,MD
+E4401,Barnsley,YH,MD
+E4402,Doncaster,YH,MD
+E4403,Rotherham,YH,MD
+E4404,Sheffield,YH,MD
+E4501,Gateshead,NE,MD
+E4502,Newcastle upon Tyne,NE,MD
+E4503,North Tyneside,NE,MD
+E4504,South Tyneside,NE,MD
+E4505,Sunderland,NE,MD
+E4601,Birmingham,WM,MD
+E4602,Coventry,WM,MD
+E4603,Dudley,WM,MD
+E4604,Sandwell,WM,MD
+E4605,Solihull,WM,MD
+E4606,Walsall,WM,MD
+E4607,Wolverhampton,WM,MD
+E4701,Bradford,YH,MD
+E4702,Calderdale,YH,MD
+E4703,Kirklees,YH,MD
+E4704,Leeds,YH,MD
+E4705,Wakefield,YH,MD
+E5010,City of London,L,L
+E5011,Camden,L,L
+E5012,Greenwich,L,L
+E5013,Hackney,L,L
+E5014,Hammersmith & Fulham,L,L
+E5015,Islington,L,L
+E5016,Kensington & Chelsea,L,L
+E5017,Lambeth,L,L
+E5018,Lewisham,L,L
+E5019,Southwark,L,L
+E5020,Tower Hamlets,L,L
+E5021,Wandsworth,L,L
+E5022,Westminster,L,L
+E5030,Barking & Dagenham,L,L
+E5031,Barnet,L,L
+E5032,Bexley,L,L
+E5033,Brent,L,L
+E5034,Bromley,L,L
+E5035,Croydon,L,L
+E5036,Ealing,L,L
+E5037,Enfield,L,L
+E5038,Haringey,L,L
+E5039,Harrow,L,L
+E5040,Havering,L,L
+E5041,Hillingdon,L,L
+E5042,Hounslow,L,L
+E5043,Kingston upon Thames,L,L
+E5044,Merton,L,L
+E5045,Newham,L,L
+E5046,Redbridge,L,L
+E5047,Richmond upon Thames,L,L
+E5048,Sutton,L,L
+E5049,Waltham Forest,L,L
+E5100,Greater London Authority,L,O
+E6002,Bedfordshire Police Authority,EE,O
+E6005,Cambridgeshire Police Authority,EE,O
+E6006,Cheshire Police Authority,NW,O
+E6007,Cleveland Police Authority,NE,O
+E6009,Cumbria Police Authority,NW,O
+E6010,Derbyshire Police Authority,EM,O
+E6012,Dorset Police Authority,SW,O
+E6013,Durham Police Authority,NE,O
+E6016,Gloucestershire Police Authority,SW,O
+E6020,Humberside Police Authority,YH,O
+E6022,Kent Police Authority,SE,O
+E6023,Lancashire Police Authority,NW,O
+E6024,Leicestershire Police Authority,EM,O
+E6025,Lincolnshire Police Authority,EM,O
+E6026,Norfolk Police Authority,EE,O
+E6027,North Yorkshire Police Authority,YH,O
+E6028,Northamptonshire Police Authority,EM,O
+E6030,Nottinghamshire Police Authority,EM,O
+E6034,Staffordshire Police Authority,WM,O
+E6035,Suffolk Police Authority,EE,O
+E6037,Warwickshire Police Authority,WM,O
+E6039,Wiltshire Police Authority,SW,O
+E6042,Greater Manchester Police Authority,NW,O
+E6043,Merseyside Police Authority,NW,O
+E6044,South Yorkshire Police Authority,YH,O
+E6045,Northumbria Police Authority,NE,O
+E6046,West Midlands Police Authority,WM,O
+E6047,West Yorkshire Police Authority,YH,O
+E6050,Avon & Somerset Police Authority,SW,O
+E6051,Devon & Cornwall Police Authority,SW,O
+E6052,Hampshire Police Authority,SE,O
+E6053,Sussex Police Authority,SE,O
+E6054,Thames Valley Police Authority,SE,O
+E6055,West Mercia Police Authority,WM,O
+E6071,Essex Police Authority (new),EE,O
+E6072,Hertfordshire Police Authority (new),EE,O
+E6073,Surrey Police Authority (new),SE,O
+E6101,Avon Combined Fire Authority,SW,O
+E6102,Bedfordshire Combined Fire Authority,EE,O
+E6103,Berkshire Combined Fire Authority,SE,O
+E6104,Buckinghamshire Combined Fire Authority,SE,O
+E6105,Cambridgeshire Combined Fire Authority,EE,O
+E6106,Cheshire Combined Fire Authority,NW,O
+E6107,Cleveland Combined Fire Authority,NE,O
+E6110,Derbyshire Combined Fire Authority,EM,O
+E6112,Dorset Combined Fire Authority,SW,O
+E6113,Durham Combined Fire Authority,NE,O
+E6114,East Sussex Combined Fire Authority,SE,O
+E6115,Essex Combined Fire Authority,EE,O
+E6117,Hampshire Combined Fire Authority,SE,O
+E6118,Hereford & Worcester Combined Fire Authority,WM,O
+E6120,Humberside Combined Fire Authority,YH,O
+E6122,Kent Combined Fire Authority,SE,O
+E6123,Lancashire Combined Fire Authority,NW,O
+E6124,Leicestershire Combined Fire Authority,EM,O
+E6127,North Yorkshire Combined Fire Authority,YH,O
+E6130,Nottinghamshire Combined Fire Authority,EM,O
+E6132,Shropshire Combined Fire Authority,WM,O
+E6134,Staffordshire Combined Fire Authority,WM,O
+E6139,Wiltshire Combined Fire Authority,SW,O
+E6142,Greater Manchester Fire & CD Authority,NW,O
+E6143,Merseyside Fire & CD Authority,NW,O
+E6144,South Yorkshire Fire & CD Authority,YH,O
+E6145,Tyne and Wear Fire & CD Authority,NE,O
+E6146,West Midlands Fire & CD Authority,WM,O
+E6147,West Yorkshire Fire & CD Authority,YH,O
+E6161,Devon and Somerset Combined Fire Authority,SW,O
+E6201,East London Waste Authority,L,O
+E6202,Greater Manchester Waste Disposal Authority,NW,O
+E6204,Merseyside Waste Disposal Authority,NW,O
+E6205,North London Waste Authority,L,O
+E6206,Western Riverside Waste Authority,L,O
+E6207,West London Waste Authority,L,O
+E6342,Greater Manchester Passenger Transport Authority,NW,O
+E6343,Merseyside Passenger Transport Authority,NW,O
+E6344,South Yorkshire Passenger Transport Authority,YH,O
+E6345,Tyne and Wear Passenger Transport Authority,NE,O
+E6346,West Midlands Passenger Transport Authority,WM,O
+E6347,West Yorkshire Passenger Transport Authority,YH,O
+E6401,Dartmoor National Park Authority,SW,O
+E6402,Exmoor National Park Authority,SW,O
+E6403,Lake District National Park Authority,NW,O
+E6404,North York Moors National Park Authority,YH,O
+E6405,Northumberland National Park Authority,NE,O
+E6406,Peak District National Park Authority,EM,O
+E6407,Yorkshire Dales National Park Authority,YH,O
+E6408,The Broads Authority,EE,O
+E6409,New Forest National Park Authority  ,SE,O
+E6803,Lee Valley Regional Park Authority,L,O
