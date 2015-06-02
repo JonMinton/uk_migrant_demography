@@ -33,9 +33,15 @@ require(scales)
 dta <- read.csv(file="data/tidied/england_la_count.csv") %>%
   tbl_df
 
+region_lookups <- read.csv(file="data/support/lookups_between_ons_and_ecodes.csv") %>%
+  tbl_df
+
+region_lookups <- region_lookups %>%
+  select(ons_code, ons_region_code, ons_region_name)
 
 dta_england <- dta  %>% 
   select(country, sex, age, year, internal_in, internal_out, international_in, international_out, population)  %>% 
+  filter(country=="E") %>%
   group_by(sex, age, year)  %>% 
   filter(!is.na(internal_in) & !is.na(internal_out) & !is.na(international_in) & !is.na(international_out))  %>% 
   summarise(
@@ -49,6 +55,9 @@ dta_england <- dta  %>%
     international_net = international_in - international_out, 
     internal_net = internal_in - internal_out)  
 
+dta_regions <- dta %>%
+  select(lad2013_code, country, sex, year, internal_in, internal_out, international_in, international_out, population) %>%
+  left_join(region_lookups, by=c())
 
 # small multiples ---------------------------------------------------------
 
