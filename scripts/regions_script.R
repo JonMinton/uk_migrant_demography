@@ -210,10 +210,15 @@ ggsave("figures/regions/english_inflow_outflow_context.png",
 
 # contour plots -----------------------------------------------------------
 
+dta_regions$ons_region_name <- revalue(
+  dta_regions$ons_region_name, 
+  c("Yorkshire and\nThe Humber" = "Yorkshire/Humber")
+)
+
 png("figures/regions/contour_population.png",
-    width=30, 
-    height=30,
-    res=300,
+    width=40, 
+    height=40,
+    res=600,
     units="cm"
 )
 
@@ -240,21 +245,21 @@ dta_regions %>%
   )
 dev.off()
 
-png("figures/contour_international_in.png",
-    width=30, 
-    height=30,
-    res=300,
+png("figures/regions/contour_international_in.png",
+    width=40, 
+    height=40,
+    res=600,
     units="cm"
 )
 
-dta_england %>%
+dta_regions %>%
   mutate(international_in = international_in / 1000) %>%
   filter(age <90) %>%
   contourplot(
-    international_in ~ age + year |  sex,
+    international_in ~ year + age  |  ons_region_name + sex,
     data=.,
     region=T,
-    layout=c(1,2), cuts=12,
+    cuts=12,
     col.regions=colorRampPalette(brewer.pal(3, "Blues"))(200),
     scales=list(
       alternating=3,
@@ -270,20 +275,20 @@ dta_england %>%
   )
 dev.off()
 
-png("figures/contour_international_out.png",
-    width=30, 
-    height=30,
-    res=300,
+png("figures/regions/contour_international_out.png",
+    width=40, 
+    height=40,
+    res=600,
     units="cm"
 )
-dta_england %>%
+dta_regions %>%
   mutate(international_out = international_out / 1000) %>%
   filter(age <90) %>%
   contourplot(
-    international_out ~ age + year |  sex,
+    international_out ~ year + age  |  ons_region_name + sex,
     data=.,
     region=T,
-    layout=c(1,2), cuts=12,
+    cuts=12,
     col.regions=colorRampPalette(brewer.pal(3, "Reds"))(200),
     scales=list(
       alternating=3,
@@ -299,20 +304,20 @@ dta_england %>%
   )
 dev.off()
 
-png("figures/contour_internal_in.png",
-    width=30, 
-    height=30,
-    res=300,
+png("figures/regions/contour_internal_in.png",
+    width=40, 
+    height=40,
+    res=600,
     units="cm"
 )
-dta_england %>%
+dta_regions %>%
   mutate(internal_in = internal_in / 1000) %>%
   filter(age < 90) %>%
   contourplot(
-    internal_in ~ age + year |  sex,
+    internal_in ~ year + age  |  ons_region_name + sex,
     data=.,
     region=T,
-    layout=c(1,2), cuts=12,
+    cuts=12,
     col.regions=colorRampPalette(brewer.pal(3, "Blues"))(200),
     scales=list(
       alternating=3,
@@ -329,20 +334,20 @@ dta_england %>%
 dev.off()
 
 
-png("figures/contour_internal_out.png",
-    width=30, 
-    height=30,
-    res=300,
+png("figures/regions/contour_internal_out.png",
+    width=40, 
+    height=40,
+    res=600,
     units="cm"
 )
-dta_england %>%
+dta_regions %>%
   mutate(internal_out = internal_out / 1000) %>%
   filter(age < 90) %>%
   contourplot(
-    internal_out ~ age + year |  sex,
+    internal_out ~ year + age  |  ons_region_name + sex,
     data=.,
     region=T,
-    layout=c(1,2), cuts=12,
+    cuts=12,
     col.regions=colorRampPalette(brewer.pal(3, "Reds"))(200),
     scales=list(
       alternating=3,
