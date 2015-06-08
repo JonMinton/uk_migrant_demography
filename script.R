@@ -55,6 +55,28 @@ dta_england <- dta  %>%
     international_net = international_in - international_out, 
     internal_net = internal_in - internal_out)  
 
+dta_wales  <- dta  %>% 
+  select(country, sex, age, year, internal_in, internal_out, international_in, international_out, population)  %>% 
+  filter(country=="W") %>%
+  group_by(sex, age, year)  %>% 
+  filter(!is.na(internal_in) & !is.na(internal_out) & !is.na(international_in) & !is.na(international_out))  %>% 
+  summarise(
+    internal_in = sum(internal_in), 
+    internal_out = sum(internal_out), 
+    international_in = sum(international_in), 
+    international_out=sum(international_out),
+    population=sum(population)
+  )  %>% 
+  mutate(
+    ons_region_name = "Wales",
+    international_net = international_in - international_out, 
+    internal_net = internal_in - internal_out)  %>% 
+  select(
+    ons_region_name, sex, age, year, internal_in,
+    internal_out, international_in, international_out, population, 
+    international_net, internal_net
+    )
+
 dta_regions <- dta %>%
   select(lad2013_code, country, age, sex, year, internal_in, internal_out, international_in, international_out, population) %>%
   filter(country=="E") %>%
@@ -73,9 +95,11 @@ dta_regions <- dta %>%
     internal_net = internal_in - internal_out
     )  
 
+#Add Wales as a 'region'
+dta_regions <- bind_rows(dta_regions, dta_wales)
+
 
 # small multiples ---------------------------------------------------------
-
 
 
 dta_england %>% 
