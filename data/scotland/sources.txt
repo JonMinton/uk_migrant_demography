@@ -1,0 +1,12 @@
+os_migs_by_age_2002_2013 - Darren Knox, NRS Scotland [1] [10/6/2015]
+ruk_migs_by_age_2002_2013 - Darren Knox, NRS Scotland [1] [10/6/2015]
+dt_deaths_by_sex_and ... -  [2] [10/6/2015]
+cae8114-single-year-of-age - [3] [10/6/2015]
+
+[1] personal communication
+[2] http://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/vital-events/deaths/deaths-time-series-data
+[3] http://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/population/population-estimates/mid-year-population-estimates/population-estimates-time-series-data
+
+
+
+

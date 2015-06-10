@@ -20,6 +20,9 @@ require(stringr)
 require(tidyr)
 require(dplyr)
 
+require(openxlsx) 
+# for scotland population data
+
 require(RColorBrewer)
 require(rgl)
 require(ggplot2)
@@ -98,7 +101,77 @@ dta_regions <- dta %>%
 #Add Wales as a 'region'
 dta_regions <- bind_rows(dta_regions, dta_wales)
 
+# Now to look at Scotland 
 
+# most interesting challenge will be populations, directly 
+# from excel sheet
+
+wb <- loadWorkbook(file="data/scotland/cae8114-single-year-of-age.xlsx")
+
+years <- 1981:2014
+
+dta_list <- lapply(as.character(years), function(x) read.xlsx(wb, sheet=x, startRow=3))
+names(dta_list) <- years
+
+convert_to_df <- function(x){
+  y <- x %>% 
+    filter(Persons=="Scotland") %>% 
+    select(-Persons, -All.Ages) %>% 
+    gather(key="age", value="population_count") 
+  
+  y$sex <- c("total", "male", "female")
+  
+  y$age <- str_replace_all(y$age, "[^0-9]", "") # non-numeric chars removed
+  y$age <- as.numeric(as.character(y$age))
+  
+  return(y)
+}
+
+dta_df <- ldply(dta_list, convert_to_df, .id="year")
+dta_df$region <- "Scotland"
+
+dta_df$year <- as.numeric(as.character(dta_df$year))
+
+
+write.csv(dta_df, file="data/tidied/scotland_population.csv", row.names = F)  
+
+ # internal migration
+
+internal_mgrtn <- read.csv("data/scotland/ruk_migs_by_age_2002_2013.csv") %>% tbl_df
+
+international_mgrtn <- read.csv("data/scotland/os_migs_by_age_2002_2013.csv") %>% tbl_df
+
+dta_scot_pop <- dta_df %>% filter(sex=="total") %>% 
+  select(ons_region_name=region, age, year, population=population_count) %>% tbl_df
+
+dta_scot_internal <- internal_mgrtn %>% 
+  select(ons_region_name=country, age, year, internal_in=inmigrant_count, internal_out = outmigrant_count)
+
+
+dta_scot_international <- international_mgrtn %>% 
+  select(ons_region_name=country, age, year, international_in=inmigrant_count, international_out = outmigrant_count)
+
+
+dta_scot <- dta_scot_pop %>% 
+  inner_join(dta_scot_internal) %>% 
+  inner_join(dta_scot_international) %>% 
+  select(ons_region_name, age, year, internal_in, 
+         internal_out, international_in, international_out, population)
+
+dta_scot$population <- as.numeric(dta_scot$population)
+# Scotland data not available by sex, so for comparison data needs to be needs to be 
+# aggregated by sex
+
+dta_regions_sex_combined <- dta_regions %>% 
+  group_by(ons_region_name, age, year) %>% 
+  summarise_each(funs(sum), -sex)
+
+dta_regions_sex_combined <- bind_rows(
+  dta_regions_sex_combined, 
+  dta_scot
+  )
+
+write.csv(dta_regions_sex_combined, file="data/tidied/UK_population_migration_inc_Scotland.csv", row.names=F)
 # small multiples ---------------------------------------------------------
 
 
