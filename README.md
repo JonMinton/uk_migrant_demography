@@ -18,11 +18,11 @@ Two main types of visualisation are produced. Firstly, small multiples or Trelli
 All analyses were produced using R. The small multiples/trellis plots were produced using the ggplot2 package, and the SCPs were produced using the lattice package. 
 
 ## Further reading
-- Minton, Vanderbloemen & Dorling (2013), 'Visualising Europe's Demographic Scars using Coplots and contour plots', International Journal of Epidemiology
-- Minton (2014), 'Real Geographies and Virtual Landscapes', Spatial and Spatiotemporal Epidemiology
+- [Minton, Vanderbloemen & Dorling (2013)](http://ije.oxfordjournals.org/content/42/4/1164.full), 'Visualising Europe's Demographic Scars using Coplots and contour plots', International Journal of Epidemiology
+- [Minton (2014)](http://www.sciencedirect.com/science/article/pii/S1877584514000173), 'Real Geographies and Virtual Landscapes', Spatial and Spatiotemporal Epidemiology
 
 ## Outputs form this work
-- International Conference on Population Geographies (30 June-3 July 2015), Brisbane Australia
+- [International Conference on Population Geographies (30 June-3 July 2015)](http://popgeog.org/2014/10/eighth-international-conference-on-population-geographies-brisbane-australia-30-june-2015-to-3-july-2015/), Brisbane Australia
 
 
 ## Coming up 
