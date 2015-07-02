@@ -1,7 +1,9 @@
 # Visualisation of UK regional migration and population structures
 
 Dr Jonathan Minton
+
 Univeristy of Glasgow, UK 
+
 jonathan.minton@glasgow.ac.uk 
 
 ##Introduction 
