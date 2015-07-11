@@ -132,7 +132,6 @@ dta_df$region <- "Scotland"
 
 dta_df$year <- as.numeric(as.character(dta_df$year))
 
-
 write.csv(dta_df, file="data/tidied/scotland_population.csv", row.names = F)  
 
  # internal migration
