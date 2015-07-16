@@ -15,13 +15,17 @@ rm(list=ls())
 
 # prereqs -----------------------------------------------------------------
 
+require(openxlsx) 
+require(readr)
+# for scotland population data
+
+
+
 require(plyr)
 require(stringr)
 require(tidyr)
 require(dplyr)
 
-require(openxlsx) 
-# for scotland population data
 
 require(RColorBrewer)
 require(rgl)
@@ -33,11 +37,9 @@ require(scales)
 
 # Data --------------------------------------------------------------------
 
-dta <- read.csv(file="data/tidied/england_la_count.csv") %>%
-  tbl_df
+dta <- read_csv(file="data/tidied/england_la_count.csv") 
 
-region_lookups <- read.csv(file="data/support/lookups_between_ons_and_ecodes.csv") %>%
-  tbl_df
+region_lookups <- read_csv(file="data/support/lookups_between_ons_and_ecodes.csv") 
 
 region_lookups <- region_lookups %>%
   select(ons_code, ons_region_code, ons_region_name)
@@ -132,13 +134,13 @@ dta_df$region <- "Scotland"
 
 dta_df$year <- as.numeric(as.character(dta_df$year))
 
-write.csv(dta_df, file="data/tidied/scotland_population.csv", row.names = F)  
+write_csv(dta_df, path="data/tidied/scotland_population.csv")  
 
  # internal migration
 
-internal_mgrtn <- read.csv("data/scotland/ruk_migs_by_age_2002_2013.csv") %>% tbl_df
+internal_mgrtn <- read_csv("data/scotland/internal_migs_by_age_2002_2013_ins_outs.csv") 
 
-international_mgrtn <- read.csv("data/scotland/os_migs_by_age_2002_2013.csv") %>% tbl_df
+international_mgrtn <- read_csv("data/scotland/os_migs_by_age_2002_2013.csv") 
 
 dta_scot_pop <- dta_df %>% filter(sex=="total") %>% 
   select(ons_region_name=region, age, year, population=population_count) %>% tbl_df
@@ -170,7 +172,7 @@ dta_regions_sex_combined <- bind_rows(
   dta_scot
   )
 
-write.csv(dta_regions_sex_combined, file="data/tidied/UK_population_migration_inc_Scotland.csv", row.names=F)
+write_csv(dta_regions_sex_combined, path="data/tidied/UK_population_migration_inc_Scotland.csv")
 # small multiples ---------------------------------------------------------
 
 
