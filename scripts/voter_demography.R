@@ -40,7 +40,9 @@ require(scales)
 dta <- read_csv(file="data/tidied/england_la_count.csv") 
 
 polls <- read_csv(file = "data/voting_2015/ispos_mori_polls.csv")
-polls <- polls %>% select(age_group = age, min_age, max_age, con, lab, ld, combined_other, turnout)
+polls <- polls %>% 
+  select(age_group = age, min_age, max_age, con, lab, ld, ukip, green, other, turnout) %>% 
+  mutate(combined_other = ld + ukip + green + other)
 
 population <- dta %>% 
   filter(year == max(year)) %>% 
@@ -72,6 +74,8 @@ pop_votes <- pop_votes %>%
     pop_con = population * turnout * con/100,
     pop_lab = population * turnout * lab/100,
     pop_ld = population * turnout * ld/100,
+    pop_green = population * turnout * green/100,
+    pop_ukip = population * turnout * ukip/100,
     pop_other = population * turnout *combined_other/100,
     pop_none = population * ( 1 - turnout)
   )
@@ -96,8 +100,20 @@ pop_votes  %>%
   ) + 
   geom_ribbon(
     aes(x=age, ymax=pop_con + pop_lab + pop_other, ymin=pop_con + pop_lab ), 
-    fill="purple"
+    fill="darkgrey"
   ) + 
+  geom_ribbon(
+    aes(x=age, ymax=pop_con + pop_lab + pop_ld, ymin=pop_con + pop_lab ), 
+    fill="yellow"
+  ) + 
+  geom_ribbon(
+    aes(x=age, ymax=pop_con + pop_lab + pop_ld + pop_green, ymin=pop_con + pop_lab + pop_ld ), 
+    fill="darkgreen"
+  ) +
+  geom_ribbon(
+    aes(x=age, ymax=pop_con + pop_lab + pop_ld + pop_green + pop_ukip, ymin=pop_con + pop_lab + pop_ld + pop_green ), 
+    fill="purple"
+  ) +
   theme_minimal() +
   scale_y_continuous(labels=comma) + 
   geom_vline(xintercept = 18) +
