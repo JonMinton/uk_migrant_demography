@@ -34,7 +34,6 @@ require(lattice)
 require(r2stl)
 require(scales)
 
-
 # Data --------------------------------------------------------------------
 
 dta <- read_csv(file="data/tidied/england_la_count.csv") 
