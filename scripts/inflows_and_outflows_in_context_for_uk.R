@@ -167,6 +167,62 @@ d_ply(dta_uk, .(ons_region_name, year), animate_year, .print =TRUE, .progress = 
 dev.off()
 
 
+#Proportion 
+
+
+levels(
+  dta_uk_prop$ons_region_name
+)[levels(dta_uk_prop$ons_region_name)=="Yorkshire\n/Humber"] <- "Yorkshire and The Humber"
+
+
+
+animate_year <- function(x){
+  this_year <- x$year[1]
+  this_region <- x$ons_region_name[1]
+  
+  a <- x  %>% 
+  group_by(age, year, ons_region_name)  %>% 
+  filter(year == this_year) %>% 
+  filter(ons_region_name == this_region) %>% 
+  ggplot(.) + 
+    geom_ribbon(
+      aes(x=age, ymin=0, ymax=population),
+      fill="lightgrey"
+    ) + 
+    geom_ribbon(
+      aes(x=age, ymax=0, ymin=-internal_out), 
+      fill="lightblue"
+    ) + 
+    geom_ribbon(
+      aes(x=age, ymax=-internal_out, ymin=-(internal_out + international_out)), 
+      fill="darkblue"
+    ) + 
+    geom_ribbon(
+      aes(x=age, ymin=0, ymax=internal_in), 
+      fill="red"
+    ) + 
+    geom_ribbon(
+      aes(x=age, ymin=internal_in, ymax=(internal_in + international_in)), 
+      fill="darkred") + 
+    
+    theme_minimal() +
+    scale_y_continuous(limits = c(-0.4, 1), labels=comma) +
+    scale_x_continuous(limits = c(0, 91), breaks = seq(5, 90, by = 5)) + 
+    labs(title=paste0(this_region, ", ", this_year), y="Proportion", x="Age") +
+    annotate("rect", xmin=0, xmax=18, ymin=-0.4, ymax=1, alpha=0.2) +
+    annotate("rect", xmin=60, xmax=91, ymin=-0.4, ymax=1, alpha=0.2) 
+  
+  a
+}
+
+pdf("figures/animation/pdfbook_proportion.pdf", width = 7, height = 7)
+
+d_ply(dta_uk_prop, .(ons_region_name, year), animate_year, .print =TRUE, .progress = "text")
+
+dev.off()
+
+
+
 
 
 # England/Wales migration in context
