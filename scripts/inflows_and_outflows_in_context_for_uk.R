@@ -65,6 +65,53 @@ ggsave("figures/regions/uk_inflow_outflow_context.png",
 )
 
 
+# Proportionate  ----------------------------------------------------------
+
+
+#The purpose of this section is to do the above, but scaled to 100 % 
+
+dta_uk_prop <- dta_uk
+dta_uk_prop <- dta_uk_prop %>% mutate_each(funs(. / population), -ons_region_name, -age, -year)
+
+
+
+
+dta_uk_prop  %>% 
+  group_by(age, year, ons_region_name)  %>% 
+  ggplot(.) + 
+    geom_ribbon(
+      aes(x=age, ymin=0, ymax=population),
+      fill="lightgrey"
+    ) + 
+  geom_ribbon(
+    aes(x=age, ymax=0, ymin=-internal_out), 
+    fill="lightblue"
+  ) + 
+  geom_ribbon(
+    aes(x=age, ymax=-internal_out, ymin=-(internal_out + international_out)), 
+    fill="darkblue"
+  ) + 
+  geom_ribbon(
+    aes(x=age, ymin=0, ymax=internal_in), 
+    fill="red"
+  ) + 
+  geom_ribbon(
+    aes(x=age, ymin=internal_in, ymax=(internal_in + international_in)), 
+    fill="darkred") + 
+  facet_grid(ons_region_name ~ year) +
+  theme_minimal() +
+  scale_y_continuous(labels=comma) +
+  labs(title="Inflows and outflows in context", y="Count", x="Age") +
+  annotate("rect", xmin=0, xmax=18, ymin=-0.1, ymax=1, alpha=0.2) +
+  annotate("rect", xmin=60, xmax=91, ymin=-0.1, ymax=1, alpha=0.2) 
+
+ggsave("figures/regions/uk_inflow_outflow_context_proportion.png", 
+       dpi=600,
+       width=40, height=40, 
+       units="cm"
+)
+
+
 
 
 # PDf Book  -------------------------------------------------------------
@@ -118,6 +165,8 @@ pdf("figures/animation/pdfbook.pdf", width = 7, height = 7)
 d_ply(dta_uk, .(ons_region_name, year), animate_year, .print =TRUE, .progress = "text")
 
 dev.off()
+
+
 
 
 # England/Wales migration in context

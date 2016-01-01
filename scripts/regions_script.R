@@ -582,3 +582,10 @@ m_internal_out %>%
 #   sex           internal_in internal_out international_in international_out population
 #  female       91840        91835            20661             12110     426452
 #    male       75851        75805            22227             11672     420409
+
+
+
+# Proportions -------------------------------------------------------------
+
+
+
