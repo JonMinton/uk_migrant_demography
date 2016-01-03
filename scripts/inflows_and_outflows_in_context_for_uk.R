@@ -100,10 +100,11 @@ dta_uk_prop  %>%
     fill="darkred") + 
   facet_grid(ons_region_name ~ year) +
   theme_minimal() +
-  scale_y_continuous(labels=comma) +
-  labs(title="Inflows and outflows in context", y="Count", x="Age") +
-  annotate("rect", xmin=0, xmax=18, ymin=-0.1, ymax=1, alpha=0.2) +
-  annotate("rect", xmin=60, xmax=91, ymin=-0.1, ymax=1, alpha=0.2) 
+  coord_cartesian(ylim=c(-0.25, 0.40)) + 
+  scale_y_continuous(breaks = seq(-0.2, 0.5, by = 0.1)) + 
+  labs(title="Inflows and outflows in context", y="Proportion", x="Age") +
+  annotate("rect", xmin=0, xmax=18, ymin=-0.25, ymax=1, alpha=0.2) +
+  annotate("rect", xmin=60, xmax=91, ymin=-0.25, ymax=1, alpha=0.2) 
 
 ggsave("figures/regions/uk_inflow_outflow_context_proportion.png", 
        dpi=600,
